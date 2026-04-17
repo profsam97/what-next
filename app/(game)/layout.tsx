@@ -7,20 +7,26 @@ export default async function GameLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  let needsOnboarding = false;
 
-  if (!user) {
-    redirect("/login");
+  try {
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+      redirect("/login");
+    }
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("has_onboarded")
+      .eq("id", user.id)
+      .single();
+
+    needsOnboarding = !profile?.has_onboarded;
+  } catch (e: unknown) {
+    if (e && typeof e === "object" && "digest" in e) throw e;
   }
-
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("has_onboarded")
-    .eq("id", user.id)
-    .single();
-
-  const needsOnboarding = !profile?.has_onboarded;
 
   return (
     <GameLayoutClient needsOnboarding={needsOnboarding}>
