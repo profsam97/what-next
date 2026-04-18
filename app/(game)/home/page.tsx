@@ -90,14 +90,14 @@ export default function HomePage() {
                 }}
               />
 
-              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
               <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between">
                 <div className="text-3xl md:text-5xl">{category.icon}</div>
                 <div>
-                  <h3 className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1">{category.name}</h3>
-                  <p className="text-xs md:text-sm text-white/70 mb-2 md:mb-4">{category.description}</p>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-sm text-white group-hover:bg-white/20 transition-colors">
+                  <h3 className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 drop-shadow-sm">{category.name}</h3>
+                  <p className="text-xs md:text-sm text-white/80 mb-2 md:mb-4 drop-shadow-sm">{category.description}</p>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-sm text-white group-hover:bg-white/30 transition-colors">
                     <Play className="w-4 h-4" />
                     Play Now
                   </div>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,10 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full antialiased", inter.variable, "font-sans")}>
+    <html lang="en" className={cn("h-full antialiased", inter.variable, "font-sans")} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
-        {children}
-        <Toaster position="top-center" richColors />
+        <ThemeProvider>
+          {children}
+          <Toaster position="top-center" richColors />
+        </ThemeProvider>
       </body>
     </html>
   );

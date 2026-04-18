@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar({ username }: { username?: string }) {
   const router = useRouter();
@@ -33,6 +34,7 @@ export function Navbar({ username }: { username?: string }) {
         {username && (
           <span className="text-xs md:text-sm text-muted-foreground truncate max-w-[120px]">{username}</span>
         )}
+        <ThemeToggle />
         <Button variant="ghost" size="icon-sm" onClick={handleLogout}>
           <LogOut className="w-4 h-4" />
         </Button>

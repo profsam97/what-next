@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { AnimatedBackground } from "@/components/landing/animated-bg";
 import { SequenceDemo } from "@/components/landing/sequence-demo";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const features = [
   {
@@ -104,7 +105,7 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen relative">
       <AnimatedBackground />
 
-      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
         <div className="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -123,6 +124,7 @@ export default function LandingPage() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
+            <ThemeToggle />
             <Button variant="ghost" size="sm" asChild>
               <Link href="/login">Log In</Link>
             </Button>
@@ -148,7 +150,7 @@ export default function LandingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-muted-foreground mb-8 border border-white/10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-muted-foreground mb-8 border border-border">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-400" />
@@ -207,7 +209,7 @@ export default function LandingPage() {
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                    className="w-4 h-4 border-2 border-foreground/30 border-t-foreground rounded-full"
                   />
                   Loading...
                 </span>
@@ -221,7 +223,7 @@ export default function LandingPage() {
             <Button
               size="lg"
               variant="outline"
-              className="h-13 px-8 text-base border-white/10 hover:bg-white/5"
+              className="h-13 px-8 text-base border-border hover:bg-accent"
               asChild
             >
               <Link href="/signup">
@@ -301,7 +303,7 @@ export default function LandingPage() {
                     backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))`,
                   }}
                 />
-                <div className="glass rounded-2xl p-8 border border-white/5 hover:border-white/10 transition-all duration-500 group-hover:-translate-y-1 h-full">
+                <div className="glass rounded-2xl p-8 border border-border hover:border-border/80 transition-all duration-500 group-hover:-translate-y-1 h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-10 h-10 rounded-xl bg-linear-to-br ${feature.gradient} flex items-center justify-center shadow-lg`}>
                       <feature.icon className="w-5 h-5 text-white" />
@@ -353,7 +355,7 @@ export default function LandingPage() {
                 className="group cursor-pointer"
                 onClick={handleGuestPlay}
               >
-                <div className="relative glass rounded-2xl p-8 border border-white/5 hover:border-white/15 transition-all duration-500 group-hover:-translate-y-2 overflow-hidden">
+                <div className="relative glass rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-500 group-hover:-translate-y-2 overflow-hidden">
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
                     style={{
@@ -398,7 +400,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="glass rounded-2xl p-6 text-center border border-white/5"
+                className="glass rounded-2xl p-6 text-center border border-border"
               >
                 <div className="text-3xl md:text-4xl font-bold bg-linear-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-1">
                   {stat.value}
@@ -454,7 +456,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <footer className="relative z-10 text-center py-8 text-sm text-muted-foreground border-t border-white/5">
+      <footer className="relative z-10 text-center py-8 text-sm text-muted-foreground border-t border-border/50">
         <div className="flex items-center justify-center gap-2">
           <div className="w-5 h-5 rounded-md bg-linear-to-br from-purple-500 to-cyan-500 flex items-center justify-center">
             <Sparkles className="w-3 h-3 text-white" />

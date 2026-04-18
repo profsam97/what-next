@@ -207,7 +207,7 @@ function Particle({ index }: { index: number }) {
 
   return (
     <motion.div
-      className="absolute rounded-full bg-white/40"
+      className="absolute rounded-full bg-foreground/40"
       style={{
         width: config.size,
         height: config.size,
@@ -281,7 +281,7 @@ export function AnimatedBackground() {
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
           backgroundSize: "40px 40px",
         }}
       />
