@@ -106,26 +106,26 @@ export default function LandingPage() {
       <AnimatedBackground />
 
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
-        <div className="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto w-full">
+        <div className="flex items-center justify-between px-4 md:px-6 py-3 max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2.5"
+            className="flex items-center gap-2 shrink-0"
           >
-            <div className="w-9 h-9 rounded-xl bg-linear-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
-              <Sparkles className="w-4.5 h-4.5 text-white" />
+            <div className="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-linear-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+              <Sparkles className="w-4 h-4 text-white" />
             </div>
-            <span className="text-lg font-bold tracking-tight">
+            <span className="text-sm md:text-lg font-bold tracking-tight">
               What&apos;s Next?
             </span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-1.5 md:gap-3"
           >
             <ThemeToggle />
-            <Button variant="ghost" size="sm" asChild>
+            <Button variant="ghost" size="sm" asChild className="px-2 md:px-3">
               <Link href="/login">Log In</Link>
             </Button>
             <Button
@@ -237,7 +237,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="max-w-lg mx-auto mb-16"
+            className="max-w-lg mx-auto mb-16 hidden md:block"
           >
             <SequenceDemo />
           </motion.div>

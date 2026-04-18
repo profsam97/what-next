@@ -79,7 +79,7 @@ export function SequenceDemo() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="flex items-center justify-center gap-3 md:gap-4">
+            <div className="flex items-center justify-center gap-3 md:gap-4 min-h-[80px] md:min-h-[90px]">
               {demo.sequence.map((emoji, i) => (
                 <div key={i} className="flex items-center gap-3 md:gap-4">
                   <motion.div
@@ -87,7 +87,7 @@ export function SequenceDemo() {
                     animate={
                       step > i
                         ? { scale: 1, opacity: 1 }
-                        : { scale: 0, opacity: 0 }
+                        : { scale: 0.001, opacity: 0 }
                     }
                     transition={{
                       type: "spring",
